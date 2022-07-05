@@ -1,4 +1,4 @@
-    void inicializarCasillas(){
+     void inicializarCasillas(){
       for (int fila = 0; fila < columnasTablero; fila++){
         for (int columna= 0; columna < filasTablero; columna++){
         Casillas[columna][fila]=2;}}
@@ -27,7 +27,8 @@
     rect (0, 0, 700,700);
     fill(255);
     textSize(20);
-    text("PLAY!",width/2,height/2);
+    text("< PLAY! >\n\n INSTRUCCIONES: \n A: izquierda \n D: derecha \n W: arriba \n S: abajo \n OBJETIVO: Llegar al cuadrado rojo sin explotar",width/2,height/2);
+    
     
     }
     void ponerMoto(){
@@ -93,8 +94,8 @@
             
             rect (columna * anchoCasilla, fila * altoCasilla, anchoCasilla,altoCasilla);
           if (columna==columnasTablero-1 && fila==filasTablero-1){
-            image (imagenn3 ,columna * anchoCasilla, fila * altoCasilla, imagen.width/4, imagen.height/4);
-            noFill();
+       
+            fill(255,0,0);
             rect (columna * anchoCasilla, fila * altoCasilla, anchoCasilla,altoCasilla);}}
            else if(Casillas[columna][fila] == 2){
             fill(245);
