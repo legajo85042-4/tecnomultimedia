@@ -1,52 +1,59 @@
-    int anchoCasilla, altoCasilla;
-    int columnasTablero = 11;
-    int filasTablero = 11;
-    int [][] Casillas;
-    boolean [] keyy = new boolean[128];
-    PImage imagen, imagen2, imagenn3;
-    int Tempfila=0;
-    int Tempcolumna = 0 ;
-    int perdiste =0;
-    int ganaste =0;
-    int secuencia=0;
-    
-    void setup () {
-    
-    size (700,700);
-    frameRate(10);
-    textAlign(CENTER);
-    imagen = loadImage ("imagen1.jpg");
-    imagen2 = loadImage ("imagen2.jpg");
-    imagenn3 = loadImage ("imagen3.jpg");
-    Casillas = new int [filasTablero][columnasTablero];
-    anchoCasilla = width/filasTablero;
-    altoCasilla = height/columnasTablero;
-     inicializarCasillas();
-    ponerMinas(35);
-    
-     }
-     
-    void draw(){
-     switch(secuencia){  
-     case 0:
-     perdiste=0;
-     ganaste=0;
-     Tempfila=0;
-     Tempcolumna = 0 ;
-     instrucciones();inicializarCasillas();ponerMinas(35); 
-     break;
-     case 1:
-     ponerMoto();
-     dibujarTablero ();
-     vosperdiste();
-     vosganaste(); 
-     break;
-    }
-    }
-    
-     void keyPressed() {keyy[key]=true;}
-     void keyReleased() {keyy[key]=false;}
-     
-     void mouseClicked(){
-    if (mouseX < width/2+30 && mouseX > width/2-30 && mouseY < height/2+30 && mouseY > height/2-30){secuencia=1;}
-    if (mouseX < 690 && mouseX > 625 && mouseY < 690 && mouseY > 670){secuencia=0;}}
+  //https://youtu.be/jaVIL6RWAts
+//Juan Isidro Yalet Asurmendi 85042/4
+PImage imagen, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8;
+PFont fuente;
+int anchoCasilla, altoCasilla;
+int columnasTablero = 11;
+int filasTablero = 11;
+int [][] Casillas;
+int Tempfila = 0;
+int Tempcolumna = 0;
+int perdiste = 0;
+int ganaste = 0;
+int secuencia = 0;
+
+void setup () {
+
+size (700,700);
+frameRate(13);
+textAlign(CENTER);
+fuente = loadFont("Circus-48.vlw");
+textFont(fuente);
+imagen = loadImage ("imagen1.jpg");
+imagen2 = loadImage ("imagen2.jpg");
+imagen3 = loadImage ("imagen3.png");
+imagen4 = loadImage ("imagen4.png");
+imagen5 = loadImage ("imagen50.png");
+imagen6 = loadImage ("imagen6.png");
+imagen7 = loadImage ("imagen7.png");
+imagen8 = loadImage ("imagen80.png");
+Casillas = new int [filasTablero][columnasTablero];
+anchoCasilla = width/filasTablero;
+altoCasilla = height/columnasTablero;}
+ 
+void draw(){
+ switch(secuencia){  
+  case 0:
+  perdiste=0; ganaste=0; Tempfila=0; Tempcolumna = 0 ;
+  menu();
+  inicializarCasillas();
+  ponerMinas(30); 
+  break;
+  case 1:
+  ponerMoto();
+  dibujarTablero();
+  vosperdiste();
+  vosganaste(); 
+  break;
+  case 2:
+  instrucciones();
+  break;
+  case 3:
+  creditos();
+  break;} }
+
+void mouseClicked(){
+  if (mouseX < 642 && mouseX > 533 && mouseY < 339 && mouseY > 294){secuencia=1;}
+  if (mouseX < 676 && mouseX > 543 && mouseY < 677 && mouseY > 632){secuencia=0;}
+  if (mouseX < 243 && mouseX > 150 && mouseY < 576 && mouseY > 495){secuencia=2;}
+  if (mouseX < 177 && mouseX > 53 && mouseY < 338 && mouseY > 297){secuencia=3;}}
