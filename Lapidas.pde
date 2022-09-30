@@ -21,6 +21,6 @@ class Lapida {
     int tamRelativo=round(map( posY,height - (height/4)-(alto/2), height - alto,0, ancho-(ancho/5)));
       if(caraocruz==0){
         image(img, posX, posY, ancho+tamRelativo, alto+tamRelativo);}
-      else {image(img2, posX, posY-alto, ancho+tamRelativo, alto+tamRelativo);}
+      else {image(img2, posX, posY, ancho+tamRelativo, alto+tamRelativo);}
     }
 }
